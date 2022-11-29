@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var valores = [true, 5, false, "hola", "adios", 2];
+        //obtener cual de los string es mayor;
+        function obtenerResultados(list){
+            let mayorString;
+            let max = 0;
+            let stringBoolean = "Orden de los elementos boolean: ";
+            //imprimir los resultados de los elementos
+            let stringNumbers = "";
+            let numbers = [];
+            list.forEach(element => {
+                if((typeof element) == "string") if(element.length > max) mayorString = element; max = element.length;
+                if((typeof element) == "boolean") stringBoolean += (element)?"-true-":"-false-";
+                if((typeof element) == "number") numbers.push(element);
+              });
+              //independiente de la cantidad de numeros del array sumamos, restamos,
+              //  multiplicamos  y dividimos todos los numeros entre si;
+              for (let i = 0; i < 4; i++) {
+                let n = numbers[0];
+                for (let index = 1; index < numbers.length; index++) {
+                    if(i == 0) n += numbers[index];
+                    else if(i == 1) n -= numbers[index];
+                    else if(i == 2) n *= numbers[index];
+                    else n = n/numbers[index];
+                }
+                    if(i == 0) stringNumbers = "Suma: " + n + "\n";
+                    else if(i == 1) n -= stringNumbers += "Resta: " + n + "\n";
+                    else if(i == 2) n *= stringNumbers += "Multiplicar: " + n + "\n";
+                    else n = stringNumbers += "Divir: " + n;
+              }
+            console.log("El string mas largo es: " + mayorString);
+            console.log(stringBoolean);
+            console.log(stringNumbers);
+    }
+    obtenerResultados(valores);
+    </script>
+</body>
+</html>

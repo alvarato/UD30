@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>ingrese el numero para saber si es par o inpar</p>
+    <input type="number" id="dni">
+    <button onclick="parInpar()">Comprobar</button>
+    <p id="imprimir"></p>
+    <script>
+    function parInpar(){
+    let n = document.getElementById("dni").value;
+    n = parseInt(n);
+    let respuesta;
+    if(n == 0  || n == 1) respuesta = (n == 0)?"El número "+n+" es par":"El número "+n+" es impar";
+    else respuesta = (n%2==0)?"El número "+n+" es par":"El número "+n+" es impar";
+    document.getElementById('imprimir').innerHTML = respuesta; 
+        }
+    </script>
+</body>
+</html>

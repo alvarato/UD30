@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Ingrese su dni con Letra</p>
+    <input type="text" id="dni">
+    <button onclick="comprobar()">Comprobar</button>
+    <p id="imprimir"></p>
+    <script>
+
+    function comprobar(){
+        let dni = document.getElementById("dni").value;
+        if(!(dni.length <= 8)){
+        let letra = dni.split('')[dni.length -1];
+        dni = dni.slice(0,dni.length-1);
+        letra = letra.toUpperCase();
+        document.getElementById('imprimir').innerHTML = letraDNI(dni,letra);
+        }else document.getElementById('imprimir').innerHTML = "Dni ingresado no valido";
+    }
+    function letraDNI(dni,letra1){
+        if(dni < 0 || dni > 99999999){
+            return "Dni ingresado no valido";
+        }
+        var cadena="TRWAGMYFPDXBNJZSQVHLCKET";
+        var posicion = dni%23;
+        var letra = cadena.substring(posicion,posicion+1);
+        let respuesta = "Dni ingresado: " + dni + " Letra: " + letra +"\nDni:" +dni+letra;
+        if(letra1 != letra){ return "La letra ingresada del Dni no es correcta \n" +
+        "Letra Ingresada: "+ letra1 + "\nLetra Real: " + letra + "\n" + respuesta;
+    }
+        return respuesta;
+    }
+
+    </script>
+</body>
+</html>

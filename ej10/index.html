@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function palindromo(){
+            let cadena = "La ruta nos aporto otro paso natural";
+            cadena = cadena.toLocaleLowerCase();
+            let cadenaArray = cadena.split('');
+            const resultado = cadenaArray.filter(letra => letra != ' ');
+            const aux = cadenaArray.filter(letra => letra != ' ');
+            const reversed = aux.reverse();
+            let flag = true;
+            if(resultado.length == reversed.length){
+                for (let index = 0; index < resultado.length; index++) {
+                    if(resultado[index] != reversed[index]){
+                        flag = false; 
+                        break;   
+                    }                  
+                }
+            }
+            let text = (flag)?"La frase es palindroma":"La frase no es palindroma";
+            alert(text);
+        }
+        palindromo();
+    </script>
+</body>
+</html>

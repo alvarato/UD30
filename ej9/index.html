@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p>Ingrese la cadena a analizar</p>
+<input type="text" id="dni">
+<button onclick="infoCadena()">Comprobar</button>
+<p id="imprimir"></p>
+<body>
+    <script>
+        let respuesta;
+        function infoCadena(){
+            respuesta = "";
+            let cadena = document.getElementById("dni").value;
+            for (let index = 0; index < cadena.length; index++) {
+                let aux = cadena.substring(index,index+1);
+                if(mayusculas(aux))break;
+            }
+            for (let index = 0; index < cadena.length; index++) {
+                let aux = cadena.substring(index,index+1);
+                if(minusculas(aux))break;
+            } 
+            document.getElementById('imprimir').innerHTML = respuesta;
+
+        }
+        //retoran true si encuentra una mayuscula
+        function mayusculas(letra){
+            let mayus = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+            for (let index = 0; index < mayus.length; index++) {
+                if(mayus[index] == letra){
+                    respuesta += "La cadena contiene Mayúsculas";
+                     return true;
+                }
+            }
+            return false;
+        }
+        //retorna false si encuentra una minuscula
+        function minusculas(letra){
+            let minus = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"];
+         for (let index = 0; index < minus.length; index++) {
+                if(minus[index] == letra){
+                    respuesta += " La cadena contiene Minúsculas"; return true;
+            }
+        }
+            return false;
+        }
+    </script>
+</body>
+</html>
